@@ -6,8 +6,8 @@ const app = express();
 
 const port = 3000;
 
-//Home 
-app.get('/', (req, res) => res.send(`Hello, World!`));
+//Home, Utilize .sendFile to respond with files
+app.get('/', (req, res) => res.sendFile(__dirname + `/index.html`));
 
 //Express server
 app.listen(port, () => console.log(`nodeCalc server starts on ${port}`));
