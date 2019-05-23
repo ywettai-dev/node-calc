@@ -28,5 +28,19 @@ app.post('/', function (req, res) {
 
 });
 
+//BMI calculator
+app.get('/bmicalculator', (req, res) => res.sendFile(__dirname + `/bmiCalculator.html`));
+
+app.post('/bmicalculator', function(req, res){
+
+    //Type casting with Number
+    var weight = Number(req.body.weight);
+    var height = Number(req.body.height);
+
+    var result = Math.round(weight / Math.pow(height, 2));
+
+    res.send(`Your BMI is ${result}.`);
+});
+
 //Express server
 app.listen(port, () => console.log(`nodeCalc server starts on ${port}`));
